@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ahmed Nikel — Professional Video Editor Portfolio">
+  <title>Ahmed Nikel | Video Editor</title>
+  <style>
+    :root{
+      --deep:#24113f;
+      --purple:#6d28d9;
+      --violet:#8b5cf6;
+      --lavender:#c4b5fd;
+      --pale:#ede9fe;
+      --soft:#faf9ff;
+      --dark:#17121f;
+      --muted:#6f687a;
+      --white:#fff;
+      --border:rgba(109,40,217,.14);
+      --shadow:0 20px 60px rgba(36,17,63,.12);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--dark); background:var(--soft); line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    nav{
+      position:sticky;top:0;z-index:20;background:rgba(250,249,255,.88);
+      backdrop-filter:blur(14px);border-bottom:1px solid var(--border)
+    }
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:22px;font-weight:800;color:var(--deep)}
+    .logo span{color:var(--violet)}
+    .nav-links{display:flex;gap:28px;font-size:14px;font-weight:600;color:#51495e}
+    .nav-links a:hover{color:var(--purple)}
+    .menu{display:none;border:0;background:none;font-size:25px}
+    .hero{
+      min-height:calc(100vh - 72px);display:flex;align-items:center;
+      background:
+        radial-gradient(circle at 85% 20%,rgba(196,181,253,.55),transparent 28%),
+        radial-gradient(circle at 10% 80%,rgba(139,92,246,.12),transparent 28%),
+        var(--soft);
+    }
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+    .eyebrow{
+      display:inline-block;padding:8px 14px;border-radius:999px;
+      background:var(--pale);color:var(--purple);font-size:13px;font-weight:800;margin-bottom:20px
+    }
+    h1{font-size:clamp(44px,7vw,76px);line-height:1.03;letter-spacing:-3px;color:var(--deep)}
+    h1 span{color:var(--violet)}
+    .hero p{max-width:650px;margin:24px 0;color:var(--muted);font-size:18px}
+    .buttons{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;
+      border-radius:12px;font-weight:800;border:1px solid transparent;transition:.2s
+    }
+    .btn-primary{background:var(--deep);color:#fff}
+    .btn-primary:hover{background:var(--purple);transform:translateY(-2px)}
+    .btn-secondary{background:#fff;color:var(--deep);border-color:var(--border)}
+    .btn-secondary:hover{border-color:var(--violet);transform:translateY(-2px)}
+    .hero-card{
+      background:linear-gradient(145deg,var(--deep),#4c1d95);color:#fff;
+      border-radius:28px;padding:34px;box-shadow:var(--shadow);position:relative;overflow:hidden
+    }
+    .hero-card:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;
+      right:-70px;top:-70px;background:rgba(196,181,253,.22)}
+    .play{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;
+      background:rgba(255,255,255,.13);font-size:28px;margin-bottom:70px}
+    .hero-card h3{font-size:28px}.hero-card p{color:#ddd4ed;font-size:14px;margin:8px 0 0}
+    section{padding:95px 0}
+    .section-head{margin-bottom:38px}
+    .kicker{color:var(--purple);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:2px}
+    .section-head h2{font-size:clamp(30px,4vw,46px);line-height:1.1;color:var(--deep);margin-top:8px}
+    .section-head p{color:var(--muted);max-width:680px;margin-top:12px}
+    .about{background:#fff}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px}
+    .about-text p{color:var(--muted);margin-bottom:15px}
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .fact{padding:22px;border:1px solid var(--border);border-radius:18px;background:var(--soft)}
+    .fact strong{display:block;color:var(--deep);font-size:20px}.fact span{font-size:13px;color:var(--muted)}
+    .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .skill{background:#fff;border:1px solid var(--border);padding:25px;border-radius:18px;box-shadow:0 8px 30px rgba(36,17,63,.05)}
+    .skill .icon{font-size:27px;margin-bottom:12px}.skill h3{font-size:17px;color:var(--deep)}.skill p{font-size:13px;color:var(--muted);margin-top:6px}
+    .projects{background:linear-gradient(180deg,var(--soft),#f2edff)}
+    .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .project{background:#fff;border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 10px 35px rgba(36,17,63,.06)}
+    .thumb{height:210px;background:linear-gradient(135deg,var(--deep),var(--violet));display:grid;place-items:center;color:#fff;font-size:48px}
+    .project-body{padding:22px}.project-body h3{color:var(--deep)}.project-body p{font-size:13px;color:var(--muted);margin:5px 0 15px}
+    .tag{display:inline-block;background:var(--pale);color:var(--purple);padding:5px 9px;border-radius:8px;font-size:11px;font-weight:800}
+    .services{background:#fff}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .service{padding:28px;border-radius:20px;background:var(--soft);border:1px solid var(--border)}
+    .service h3{margin:12px 0 6px;color:var(--deep)}.service p{font-size:14px;color:var(--muted)}
+    .contact{background:var(--deep);color:#fff}
+    .contact .section-head h2{color:#fff}.contact .section-head p{color:#d9d0e5}
+    .contact-box{display:flex;justify-content:space-between;gap:30px;align-items:center;padding:35px;
+      border:1px solid rgba(255,255,255,.14);border-radius:22px;background:rgba(255,255,255,.06)}
+    .contact-info{display:flex;flex-wrap:wrap;gap:12px}.contact-info a{color:#e8ddff;font-weight:700}
+    footer{background:#120a1e;color:#aaa0b5;padding:25px 0;font-size:13px}
+    footer .container{display:flex;justify-content:space-between;gap:15px}
+    @media(max-width:850px){
+      .nav-links{display:none}.menu{display:block}
+      .hero-grid,.about-grid{grid-template-columns:1fr}
+      .skills-grid{grid-template-columns:1fr 1fr}.project-grid,.service-grid{grid-template-columns:1fr}
+      .hero{padding:70px 0}.hero-card{max-width:520px}
+      .contact-box{flex-direction:column;align-items:flex-start}
+    }
+    @media(max-width:520px){
+      section{padding:70px 0}.skills-grid,.facts{grid-template-columns:1fr}
+      h1{letter-spacing:-2px}.hero p{font-size:16px}
+      footer .container{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#home">Ahmed<span>Nikel</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="menu" onclick="document.querySelector('.nav-links').style.display =
+      document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'">☰</button>
+  </div>
+</nav>
+
+<main id="home">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">VIDEO EDITOR • CREATIVE STORYTELLER</span>
+        <h1>I turn raw footage into <span>impactful stories.</span></h1>
+        <p>
+          Hi, I'm Ahmed Nikel — a video editor focused on clean cuts, cinematic color,
+          engaging motion and content that keeps viewers watching.
+        </p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="#projects">View My Work</a>
+          <a class="btn btn-secondary" href="#contact">Let's Work Together</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="play">▶</div>
+        <h3>Video Editor</h3>
+        <p>Premiere Pro • After Effects • Color Grading • Motion Graphics</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">About Me</div>
+        <h2>Creative editing with purpose.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I create videos that are visually clean, emotionally engaging and built around the story.</p>
+          <p>My focus is on strong pacing, smooth transitions, sound design, color grading and modern visual effects.</p>
+          <p>Whether it's short-form social content, YouTube videos, promotional content or cinematic edits, I aim to make every second count.</p>
+        </div>
+        <div class="facts">
+          <div class="fact"><strong>Video Editing</strong><span>Short & long-form content</span></div>
+          <div class="fact"><strong>Color Grading</strong><span>Cinematic visual style</span></div>
+          <div class="fact"><strong>Motion Graphics</strong><span>Titles & visual animation</span></div>
+          <div class="fact"><strong>Sound Design</strong><span>Music, SFX & clean audio</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">My Skills</div>
+        <h2>Tools & creative skills.</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill"><div class="icon">🎬</div><h3>Adobe Premiere Pro</h3><p>Professional editing, pacing and storytelling.</p></div>
+        <div class="skill"><div class="icon">✨</div><h3>After Effects</h3><p>Motion graphics, titles and visual effects.</p></div>
+        <div class="skill"><div class="icon">🎨</div><h3>Color Grading</h3><p>Balanced, cinematic and consistent visuals.</p></div>
+        <div class="skill"><div class="icon">🔊</div><h3>Sound Design</h3><p>Music, SFX and dialogue cleanup.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Portfolio</div>
+        <h2>Selected projects.</h2>
+        <p>Replace these demo cards with your real showreel and client projects.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project">
+          <div class="thumb">▶</div>
+          <div class="project-body"><h3>Cinematic Edit</h3><p>Story-driven edit with cinematic color and sound design.</p><span class="tag">VIDEO EDITING</span></div>
+        </article>
+        <article class="project">
+          <div class="thumb">✦</div>
+          <div class="project-body"><h3>Social Media Reel</h3><p>Fast-paced vertical content designed for retention.</p><span class="tag">SHORT FORM</span></div>
+        </article>
+        <article class="project">
+          <div class="thumb">Aa</div>
+          <div class="project-body"><h3>Motion Graphics</h3><p>Modern titles, transitions and animated visuals.</p><span class="tag">MOTION DESIGN</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Services</div>
+        <h2>How I can help.</h2>
+      </div>
+      <div class="service-grid">
+        <div class="service"><div class="icon">🎞️</div><h3>Video Editing</h3><p>Clean cuts, pacing, transitions, captions and storytelling for YouTube and social media.</p></div>
+        <div class="service"><div class="icon">🎨</div><h3>Color Grading</h3><p>Professional correction and creative looks to make your footage feel polished.</p></div>
+        <div class="service"><div class="icon">⚡</div><h3>Reels & Shorts</h3><p>Attention-grabbing vertical edits with dynamic captions, effects and sound.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Contact</div>
+        <h2>Have a project in mind?</h2>
+        <p>Let's turn your footage into something people want to watch.</p>
+      </div>
+      <div class="contact-box">
+        <div>
+          <h3>Ahmed Nikel</h3>
+          <p style="color:#cfc3dc;margin-top:5px">Professional Video Editor</p>
+        </div>
+        <div class="contact-info">
+          <!-- Replace these links with your real contact details -->
+          <a href="mailto:your@email.com">Email</a>
+          <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+          <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <span>© 2026 Ahmed Nikel. All rights reserved.</span>
+    <span>Video Editor Portfolio</span>
+  </div>
+</footer>
+
+</body>
+</html>
